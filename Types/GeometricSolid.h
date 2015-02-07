@@ -20,11 +20,13 @@ using namespace std;
 class GeometricSolid
 {
 	protected:
-		string objName;
-		Vec3 position;
+
 	public:
 		GeometricSolid();
 		virtual ~GeometricSolid();
+
+		string objName;
+		Vec3 position;
 
 		virtual string name() { return objName; }
 		virtual double volume();

@@ -14,12 +14,14 @@
 class Face: public GeometricSolid {
 
 private:
-	vector<Vec3> verts;
-	Vec3 n; //Normal
+
 
 public:
 	Face();
+	Face(vector<Vec3> nVerts, Vec3 normal) {verts = nVerts; n = normal; };
 	virtual ~Face();
+	vector<Vec3> verts;
+	Vec3 n; //Normal
 };
 
 #endif /* FACE_H_ */

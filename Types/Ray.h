@@ -22,7 +22,7 @@ public:
 	Ray(float origin_x, float origin_y, float origin_z, float rotation_x, float rotation_y, float rotation_z,float threshhold);
 	virtual ~Ray();
 	Vec3 getOrigin() { return _origin; };
-	Vec3 getrotation() { return _rotation; };
+	Vec3 getRotation() { return _rotation; };
 };
 
 #endif /* RAY_H_ */

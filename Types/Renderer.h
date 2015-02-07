@@ -8,13 +8,15 @@
 #ifndef RENDERER_H_
 #define RENDERER_H_
 
-#include "Image.h"
+
+#include "Face.h"
 
 class Renderer {
 public:
 	Renderer();
 	virtual ~Renderer();
-	Image render();
+	void render();
+	bool intersectPlane(const Face &f, Ray ray, float &t);
 };
 
 #endif /* RENDERER_H_ */
