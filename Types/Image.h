@@ -5,6 +5,9 @@
 //Class adapted from http://Scratchapixel.com
 
 #include<string>
+
+using namespace std;
+
 class Image
 {
 public:
@@ -21,6 +24,11 @@ public:
 		{ f += (rgb.r + rgb.g + rgb.b) / 3.f; return f; }
 	 	float r, g, b;
 	 };
+	Rgb kBlack = Rgb(0);
+	Rgb kWhite = Rgb(1);
+	Rgb kRed = Rgb(1,0,0);
+	Rgb kGreen = Rgb(0,1,0);
+	Rgb kBlue = Rgb(0,0,1);; // preset colors
 
 	 Image() : w(0), h(0), pixels(NULL)
 	 { /* empty Image */ }
@@ -45,11 +53,40 @@ public:
 	 ~Image() { if (pixels != NULL) delete [] pixels; }
 	 unsigned int w, h; // Image resolution
 	 Rgb *pixels; // 1D array of pixels
-	 static const Rgb kBlack = Rgb(0);
-	 static const Rgb kWhite = Rgb(1);
-	 static const Rgb kRed = Rgb(1,0,0);
-	 static const Rgb kGreen = Rgb(0,1,0);
-	 static const Rgb kBlue = Rgb(0,0,1);; // preset colors
+
+
+	 void write(string fileName)
+	 {
+		 if (w == 0 || h == 0) { fprintf(stderr, "Can't save an empty image\n"); return; }
+		 std::ofstream ofs;
+		 try
+		 {
+			 ofs.open(fileName.c_str(), std::ios::binary); // need to spec. binary mode for Windows users
+			 if (ofs.fail()) throw("Can't open output file");
+			 ofs << "P6\n" << w << " " << h << "\n255\n";
+			 unsigned char r, g, b;
+			 // loop over each pixel in the image, clamp and convert to byte format
+			 for (int i = 0; i < w * h; ++i) {
+				 r = static_cast<unsigned char>(std::min(1.f, pixels[i].r) * 255);
+				 g = static_cast<unsigned char>(std::min(1.f, pixels[i].g) * 255);
+				 b = static_cast<unsigned char>(std::min(1.f, pixels[i].b) * 255);
+				 ofs << r << g << b;
+			 }
+
+			 ofs.close();
+			 std::cout << "Image written to: " << fileName << endl;
+
+
+		 }
+		 catch (const char *err)
+		 {
+			 fprintf(stderr, "%s\n", err);
+			 std::cout << "Image failed to be written out to: " << fileName << endl;
+			 ofs.close();
+		 }
+
+	 }
+
 };
 
 #endif
