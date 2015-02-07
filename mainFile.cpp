@@ -9,7 +9,7 @@
 #include <cmath>
 #include <string>
 #include "Types/Vec3.h"
-#include "GeometricSolid.h"
+#include "Types/GeometricSolid.h"
 #include <fstream>
 #include <cstring>
 
