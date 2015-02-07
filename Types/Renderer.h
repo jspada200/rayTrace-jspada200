@@ -10,6 +10,7 @@
 
 
 #include "Face.h"
+#include "Image.h"
 
 class Renderer {
 public:

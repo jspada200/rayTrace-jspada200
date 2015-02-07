@@ -7,6 +7,7 @@
 
 #include "Renderer.h"
 #include "Face.h"
+#include "Image.h"
 #include "Utils.h"
 
 Renderer::Renderer() {
