@@ -8,7 +8,6 @@
 #include "Renderer.h"
 #include "Face.h"
 #include "Image.h"
-#include "Utils.h"
 
 Renderer::Renderer() {
 	// TODO Auto-generated constructor stub
@@ -35,4 +34,9 @@ bool Renderer::intersectPlane(const Face &f, Ray ray, float &t)
         return (t >= 0);
     }
     return false;
+}
+
+double Renderer::dot(const Vec3 &p1, const Vec3 &p2)
+{
+	return (p1._x*p2._x) + (p1._y*p2._y) + (p1._z*p2._z);
 }

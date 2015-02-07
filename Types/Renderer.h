@@ -18,6 +18,7 @@ public:
 	virtual ~Renderer();
 	void render();
 	bool intersectPlane(const Face &f, Ray ray, float &t);
+	double dot(const Vec3 &p1, const Vec3 &p2);
 };
 
 #endif /* RENDERER_H_ */
