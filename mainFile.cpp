@@ -35,24 +35,24 @@ int main()
 {
 
 	vector<Vec3> verts;
-	Vec3 in(25,25,15);
+	Vec3 in(100,100,15);
 	verts.push_back(in);
 	//in = (25,-25,15);
-	in._x = 25;
-	in._y = -25;
+	in._x = 100;
+	in._y = -100;
 	in._z = 15;
 	verts.push_back(in);
 	//in = (-25,-25,15);
-	in._x = -25;
-	in._y = -25;
+	in._x = -100;
+	in._y = -100;
 	in._z = 15;
 	verts.push_back(in);
 	//in = (-25,25,15);
-	in._x = -25;
-	in._y = 25;
-	in._z = 15;
+	in._x = -100;
+	in._y = 100;
+	in._z = 100;
 	verts.push_back(in);
-	Vec3 n(90,89,90);
+	Vec3 n(90,90,90);
 
 	Face newFace(verts, n);
 
@@ -63,8 +63,8 @@ int main()
 	mySceneObjects.push_back(newObj);
 
 	Renderer myRenderer;
-	int w = 500;
-	int h = 500;
+	int w = 50;
+	int h = 50;
 	myRenderer.render(mySceneObjects, w, h);
 
 	return 0;

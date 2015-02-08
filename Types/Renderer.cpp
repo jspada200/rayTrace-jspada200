@@ -7,7 +7,7 @@
 
 #include "Renderer.h"
 //#include "Face.h"
-#include "Image.h"
+//#include "Image.h"
 #include <iostream>
 #include <fstream>
 
@@ -31,7 +31,7 @@ bool Renderer::intersectPlane(const Face &f, Ray ray, float &t)
 
     // assuming vectors are all normalized
     double denom = dot(n, l);
-    cout << denom << endl;
+    //cout << denom << endl;
     if (denom > 1e-6) {
         Vec3 p0l0 = p0 - l0;
         t = dot(p0l0, n) / denom;
@@ -62,15 +62,22 @@ void Renderer::render(vector<Face> &mySceneObjects, int w, int h)
 					halt = i;
 					if(intersectPlane(newFace,myRay, halt) == true)
 					{
-						cout << "Hit! t = " << halt;
+						//cout << "Hit! t = " << halt;
 						hit = true;
 						break;
 					}
 				}
 				if(hit)
+				{
 					pixTemp.push_back(1);
+					cout << "+ ";
+				}
 				else
+				{
 					pixTemp.push_back(0);
+					cout << "- ";
+				}
+			cout << "(" << j << "," << k << ")" << endl;
 			}
 		}
 	}
@@ -84,6 +91,8 @@ void Renderer::render(vector<Face> &mySceneObjects, int w, int h)
 		else
 			myImg.pixels[i] = Image::Rgb(0,0,0);
 	}
+	string fileName = "/home/jspada20/test.ppm";
+	writeFile(myImg,fileName.c_str());
 
 }
 
