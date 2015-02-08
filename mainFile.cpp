@@ -33,6 +33,7 @@ using namespace std;
 
 int main()
 {
+
 	vector<Vec3> verts;
 	Vec3 in(25,25,15);
 	verts.push_back(in);
@@ -55,17 +56,16 @@ int main()
 
 	Face newFace(verts, n);
 
-	Ray myRay(0,0,0,0,90,0,1);
+	vector<Face> mySceneObjects;
+
+	Face newObj(verts, n);
+
+	mySceneObjects.push_back(newObj);
+
 	Renderer myRenderer;
-	float halt;
-	for(float i = .1; i < 10000; i = i + .1) {
-		halt = i;
-		if(myRenderer.intersectPlane(newFace,myRay, halt) == true)
-		{
-			cout << "Hit! t = " << halt;
-			break;
-		}
-	}
+	int w = 500;
+	int h = 500;
+	myRenderer.render(mySceneObjects, w, h);
 
 	return 0;
 }

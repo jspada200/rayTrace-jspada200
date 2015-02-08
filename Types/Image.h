@@ -1,6 +1,9 @@
 #ifndef IMAGE_H_
 #define IMAGE_H_
 
+#include <iostream>
+using namespace std;
+
 class Image
 {
 public:
@@ -23,14 +26,20 @@ public:
     Image(const unsigned int &_w, const unsigned int &_h, const Rgb &c = kBlack) : w(_w), h(_h), pixels(NULL)
     {
         pixels = new Rgb[w * h];
-        for (int i = 0; i < w * h; ++i) pixels[i] = c;
+        for (unsigned int i = 0; i < w * h; ++i) pixels[i] = c;
     }
     const Rgb& operator [] (const unsigned int &i) const { return pixels[i]; }
     Rgb& operator [] (const unsigned int &i) { return pixels[i]; }
     ~Image() { if (pixels != NULL) delete [] pixels; }
     unsigned int w, h; // image resolution
     Rgb *pixels; // 1D array of pixels
-    static const Rgb kBlack, kWhite, kRed, kGreen, kBlue; // preset colors
+    //static const Rgb kBlack, kWhite, kRed, kGreen, kBlue; // preset colors
+
+    static const Rgb kBlack;
+    static const Rgb kWhite;
+    static const Rgb kRed;
+    static const Rgb kGreen;
+    static const Rgb kBlue;
 };
 
 const Image::Rgb Image::kBlack = Image::Rgb(0);
