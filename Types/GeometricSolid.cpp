@@ -13,7 +13,7 @@ GeometricSolid::GeometricSolid() {
 	// TODO Auto-generated constructor stub
 	position._x = 0;
 	position._y = 0;
-	position._z = 0;
+	position._z = 15;
 	objName = "null";
 
 }

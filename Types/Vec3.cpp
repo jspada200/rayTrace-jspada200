@@ -42,3 +42,15 @@ ostream& Vec3::operator << (ostream& os)
 	os << "(" << _x << ", " << _y << ", " << _z << ")";
 	return os;
 }
+
+Vec3 Vec3::normalize(float highOne)
+{
+	float x = _x/highOne;
+	float y = _y/highOne;
+	float z = _z/highOne;
+
+	return Vec3(x,y,z);
+
+}
+
+

@@ -21,6 +21,8 @@ public:
 	float _y;
 	float _z;
 
+	Vec3 normalize(float highOne);
+
 	Vec3& operator += (const Vec3 &myPoint) { _x += myPoint._x , _y += myPoint._y , _z += myPoint._z; return *this; }
 	Vec3& operator -= (const Vec3 &myPoint) { _x -= myPoint._x, _y -= myPoint._y, _z -= myPoint._z; return *this; }
 	Vec3& operator + (const Vec3 &myPoint) { _x += myPoint._x, _y += myPoint._y, _z += myPoint._z; return *this; }

@@ -18,7 +18,7 @@ private:
 
 public:
 	Face();
-	Face(vector<Vec3> nVerts, Vec3 normal) {verts = nVerts; n = normal; };
+	Face(vector<Vec3> nVerts, Vec3 normal) {verts = nVerts; n = normal; position._x = 0; position._y = 0; position._z = 15;}
 	virtual ~Face();
 	vector<Vec3> verts;
 	Vec3 n; //Normal
